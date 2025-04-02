@@ -5,3 +5,7 @@ There are 4 services, which are:
 * Customers 
 * Products 
 * Payments 
+
+Technology used:
+* Python (PyCharm)
+* .txt File
