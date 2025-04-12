@@ -3,24 +3,27 @@ def show_supplier():
         supplier_file = open("suppliers.txt", "r")
 
         # Baca baris pertama dari file suppliers.txt
-        sp_name = supplier_file.readline()
+        sp_kode = supplier_file.readline()
 
-        while sp_name != '':
+        while sp_kode != '':
             # Setelah nama pemasok tidak kosong, baru baca data lain
+            sp_name = supplier_file.readline()
             sp_address = supplier_file.readline()
             sp_contact = supplier_file.readline()
 
+            sp_kode = sp_kode.rstrip('\n')
             sp_name = sp_name.rstrip('\n')
             sp_address = sp_address.rstrip('\n')
             sp_contact = sp_contact.rstrip('\n')
 
+            print(f"Kode pemasok: {sp_kode}")
             print(f"Nama pemasok: {sp_name}")
             print(f"Alamat pemasok: {sp_address}")
             print(f"Kontak pemasok: {sp_contact}")
             print()
 
             # Buat cek lagi apakah namanya sudah habis atau masih ada
-            sp_name = supplier_file.readline()
+            sp_kode = supplier_file.readline()
 
         supplier_file.close()
 

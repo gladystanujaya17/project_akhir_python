@@ -4,26 +4,29 @@ def add_payments():
     try:
         found = False
 
-        search = input('Masukkan nama produk yang ingin dibeli: ')
+        search = input('Masukkan kode produk yang ingin dibeli: ')
 
         product_file = open('products.txt', 'r')
         temp_file = open('temp.txt', 'w')
         payment_file = open('payments.txt', 'a')
 
-        p_name = product_file.readline()
+        p_kode = product_file.readline()
 
-        while p_name != '':
+        while p_kode != '':
+            p_name = product_file.readline()
             p_qty = product_file.readline()
             p_harga = product_file.readline()
             p_satuan = product_file.readline()
 
+            p_kode = p_kode.rstrip('\n')
             p_name = p_name.rstrip('\n')
             p_qty = p_qty.rstrip('\n')
             p_harga = p_harga.rstrip('\n')
             p_satuan = p_satuan.rstrip('\n')
 
-            if p_name == search:
-                t_qty = int(input('Kuantitas Produk: '))
+            if p_kode == search:
+                print(f'Produk yang akan dibeli adalah {p_name}')
+                t_qty = int(input(f'Kuantitas produk yang akan dibeli: '))
                 if int(p_qty) >= t_qty:
                     # Simpan ke file payment
                     payment_file.write(p_name + '\n')
@@ -39,6 +42,7 @@ def add_payments():
                     new_p_qty = int(p_qty) - t_qty
 
                     # Tulis ke temp_file untuk products.txt
+                    temp_file.write(p_kode + '\n')
                     temp_file.write(p_name + '\n')
                     temp_file.write(str(new_p_qty) + '\n')
                     temp_file.write(p_harga + '\n')
@@ -67,6 +71,7 @@ def add_payments():
 
                     # Kalau produknya sudah habis, data akan
                     # tetap ditulis ke dalam temp.txt lewat temp_file
+                    temp_file.write(p_kode + '\n')
                     temp_file.write(p_name + '\n')
                     temp_file.write(str(0) + '\n')
                     temp_file.write(p_harga + '\n')
@@ -88,6 +93,7 @@ def add_payments():
                     payment_file.write(str(total_harga) + '\n')
 
                     # Tulis ke temp_file untuk products.txt
+                    temp_file.write(p_kode + '\n')
                     temp_file.write(p_name + '\n')
                     temp_file.write(str(0) + '\n')
                     temp_file.write(p_harga + '\n')
@@ -113,13 +119,13 @@ def add_payments():
             else:
                 # Kalau datanya tidak ada yang sama seperti di keyword, data akan
                 # tetap ditulis ke dalam temp.txt lewat temp_file
-
+                temp_file.write(p_kode + '\n')
                 temp_file.write(p_name + '\n')
                 temp_file.write(p_qty + '\n')
                 temp_file.write(p_harga + '\n')
                 temp_file.write(p_satuan + '\n')
 
-            p_name = product_file.readline()
+            p_kode = product_file.readline()
 
         product_file.close()
         temp_file.close()

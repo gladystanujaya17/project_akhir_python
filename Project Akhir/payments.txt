@@ -1,20 +1,28 @@
+Myvo Pingpong Clear 3 Watt
+10
+10000
+100000
+Myvo Pingpong Clear 3 Watt
+10
+10000
+100000
 Hannochs Revo 23 Watt
 30
-25000
-750000
-Niga Kipas 8 Watt 3 Baling
-5
-15000
-75000
-Niga Kipas 8 Watt 3 Baling
-10
-15000
-150000
-Senter Luby Zoom 30 Watt
-10
-45000
-450000
-Senter Luby Zoom 30 Watt
+35000
+1050000
+Hannochs Alfa 10 Watt
 20
-45000
-900000
+23000
+460000
+Hannochs Alfa 10 Watt
+10
+23000
+230000
+Kipas Angin Sanex Minions
+5
+130000
+650000
+Hannochs Alfa 10 Watt
+30
+23000
+690000

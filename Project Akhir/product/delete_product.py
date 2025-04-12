@@ -9,19 +9,22 @@ def delete_product():
         product_file = open('products.txt', 'r')
         temp_file = open('temp2.txt', 'w')
 
-        p_name = product_file.readline()
+        p_kode = product_file.readline()
 
-        while p_name != '':
+        while p_kode != '':
+            p_name = product_file.readline()
             p_qty = product_file.readline()
             p_harga = product_file.readline()
             p_satuan = product_file.readline()
 
+            p_kode = p_kode.rstrip('\n')
             p_name = p_name.rstrip('\n')
             p_qty = p_qty.rstrip('\n')
             p_harga = p_harga.rstrip('\n')
             p_satuan = p_satuan.rstrip('\n')
 
-            if p_name != keyword:
+            if p_kode != keyword:
+                temp_file.write(p_kode + '\n')
                 temp_file.write(p_name + '\n')
                 temp_file.write(p_qty + '\n')
                 temp_file.write(p_harga + '\n')
@@ -30,13 +33,13 @@ def delete_product():
             else:
                 found = True
 
-            p_name = product_file.readline()
+            p_kode = product_file.readline()
 
         product_file.close()
         temp_file.close()
 
-        os.remove('../products.txt')
-        os.rename('temp2.txt', '../products.txt')
+        os.remove('products.txt')
+        os.rename('temp2.txt', 'products.txt')
 
         if found:
             print('File telah diperbaharui.')

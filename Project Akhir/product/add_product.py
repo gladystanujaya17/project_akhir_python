@@ -7,12 +7,14 @@ def add_product():
         while jawaban == 'Y':
             print("Masukkan data barang berikut: ")
 
+            p_kode = input("Kode Barang: ")
             p_name = input("Nama barang: ")
             p_qty = input("Kuantitas barang: ")
             p_harga = input("Harga barang: ")
             p_satuan = input("Satuan barang: ")
 
             # Tulis ke dalam products.txt
+            product_file.write(p_kode + '\n')
             product_file.write(p_name + '\n')
             product_file.write(p_qty + '\n')
             product_file.write(p_harga + '\n')

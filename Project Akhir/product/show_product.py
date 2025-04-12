@@ -2,18 +2,21 @@ def show_product():
     try:
         product_file = open('products.txt', 'r')
 
-        p_name = product_file.readline()
+        p_kode = product_file.readline()
 
-        while p_name != '':
+        while p_kode != '':
+            p_name = product_file.readline()
             p_qty = product_file.readline()
             p_harga = product_file.readline()
             p_satuan = product_file.readline()
 
+            p_kode = p_kode.rstrip('\n')
             p_name = p_name.rstrip('\n')
             p_qty = p_qty.rstrip('\n')
             p_harga = p_harga.rstrip('\n')
             p_satuan = p_satuan.rstrip('\n')
 
+            print('Kode Barang: ', p_kode)
             print('Nama Barang:', p_name)
             print('Kuantitas Barang:', p_qty)
             print('Harga Barang:', p_harga)
@@ -25,7 +28,7 @@ def show_product():
                 print(f'Stok {p_name_habis} sudah habis, mohon untuk mengisi ulang stok produk!')
                 print()
 
-            p_name = product_file.readline()
+            p_kode = product_file.readline()
 
         product_file.close()
 

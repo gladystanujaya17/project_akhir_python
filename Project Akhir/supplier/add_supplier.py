@@ -8,11 +8,13 @@ def add_supplier():
         while jawaban == "Y":
             print("Masukkan data pemasok berikut: ")
 
+            sp_kode = input("Kode pemasok: ")
             sp_name = input("Nama pemasok: ")
             sp_address = input("Alamat pemasok: ")
             sp_contact = input("Kontak pemasok: ")
 
             # Tulis data ke dalam suppliers.txt
+            supplier_file.write(sp_kode + '\n')
             supplier_file.write(sp_name + '\n')
             supplier_file.write(sp_address + '\n')
             supplier_file.write(sp_contact + '\n')

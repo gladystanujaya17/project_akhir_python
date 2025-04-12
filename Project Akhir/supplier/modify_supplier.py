@@ -4,22 +4,24 @@ def modify_supplier():
     try:
         found = False
 
-        search = input('Masukkan nama pemasok untuk pencarian: ')
+        search = input('Masukkan kode pemasok untuk pencarian: ')
 
         supplier_file = open('suppliers.txt', 'r')
         temp_file = open('temp1.txt', 'w')
 
-        sp_name = supplier_file.readline()
+        sp_kode = supplier_file.readline()
 
-        while sp_name != '':
+        while sp_kode != '':
+            sp_name = supplier_file.readline()
             sp_address = supplier_file.readline()
             sp_contact = supplier_file.readline()
 
+            sp_kode = sp_kode.rstrip('\n')
             sp_name = sp_name.rstrip('\n')
             sp_address = sp_address.rstrip('\n')
             sp_contact = sp_contact.rstrip('\n')
 
-            if sp_name == search:
+            if sp_kode == search:
                 print("1. Alamat")
                 print("2. Kontak Pemasok")
                 print("3. Ganti Kedua Data")
@@ -28,6 +30,7 @@ def modify_supplier():
                 if change_data == "1":
                     new_sp_address = input(f"Masukkan alamat terbaru dari pemasok {sp_name}: ")
 
+                    temp_file.write(sp_kode + '\n')
                     temp_file.write(sp_name + '\n')
                     temp_file.write(new_sp_address + '\n')
                     temp_file.write(sp_contact + '\n')
@@ -36,6 +39,7 @@ def modify_supplier():
                 elif change_data == "2":
                     new_sp_contact = input(f'Masukkan kontak baru dari pemasok {sp_name}: ')
 
+                    temp_file.write(sp_kode + '\n')
                     temp_file.write(sp_name + '\n')
                     temp_file.write(sp_address + '\n')
                     temp_file.write(new_sp_contact + '\n')
@@ -45,6 +49,7 @@ def modify_supplier():
                     new_sp_address = input(f"Masukkan alamat terbaru dari pemasok {sp_name}: ")
                     new_sp_contact = input(f'Masukkan kontak baru dari pemasok {sp_name}: ')
 
+                    temp_file.write(sp_kode + '\n')
                     temp_file.write(sp_name + '\n')
                     temp_file.write(new_sp_address + '\n')
                     temp_file.write(new_sp_contact + '\n')
@@ -56,11 +61,12 @@ def modify_supplier():
             else:
                 # Kalau datanya tidak ada yang sama seperti di keyword, data akan
                 # tetap ditulis ke dalam temp1.txt lewat temp_file
+                temp_file.write(sp_kode + '\n')
                 temp_file.write(sp_name + '\n')
                 temp_file.write(sp_address + '\n')
                 temp_file.write(sp_contact + '\n')
 
-            sp_name = supplier_file.readline()
+            sp_kode = supplier_file.readline()
 
         supplier_file.close()
 

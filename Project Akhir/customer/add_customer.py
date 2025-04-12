@@ -9,11 +9,13 @@ def add_customer():
             print('Masukkan data pelanggan berikut: ')
 
             # Minta data pelanggan
+            kode_pelanggan = input('Kode Pelanggan: ')
             name = input('Nama: ')
             no_telp = input('Nomor Telepon: ')
             place = input('Daerah Tempat Tinggal: ')
 
             # Tulis data ke dalam file customers.txt
+            customer_file.write(kode_pelanggan + '\n')
             customer_file.write(name + '\n')
             customer_file.write(no_telp + '\n')
             customer_file.write(place + '\n')

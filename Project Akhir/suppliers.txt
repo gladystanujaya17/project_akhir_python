@@ -1,12 +1,8 @@
-PT Ganda Jaya Abadi
-Jakarta Barat
-0856723457
-PT Surya Kencana
-Jakarta Timur
-0856781234
-PT Aneka Listrindo
-Jakarta Pusat
-085812564398
+S.0003
+PT Lumisindo 
+BSD
+0283487593103
+S.0004
 PT Sankiyota Aoki
-Jakarta Utara
-085801020304
+Magelang
+084721349823
